@@ -5,26 +5,28 @@ class LoginPage {
         return $('#login-username'); }
 
     get inputPassword() { 
-        return $('#formImputIcon'); }
+        return $('#login-password'); }
+
+    get btnLoginFirst() { 
+        return $('[data-testid="login-button"]'); }
 
     get btnLogin() { 
-        return $('#login-button'); }
-    
+        return $('#login-button');}
+        
     get rememberBtnLogin() { 
-        return $('#login-remember'); }
-
-    get closeCookies() { 
-        return $('#buttonPrimary'); }
-    
+        return $('.Wrapper-sc-16y5c87-0'); }
+        
     get errorMessage() { 
         return $('#username-error'); }
 
+
     async login(username, password) {
-        await this.closeCookies.click();
-        await this.btnLogin.click();
-        await this.rememberBtnLogin.click();
+        await this.btnLoginFirst.click();
+        await this.inputUsername.scrollIntoView()
         await this.inputUsername.setValue(username);
         await this.inputPassword.setValue(password);
+        await this.rememberBtnLogin.waitForClickable({ timeout: 5000 });
+        await this.rememberBtnLogin.click();
         await this.btnLogin.scrollIntoView();
         await this.btnLogin.click();
     }
