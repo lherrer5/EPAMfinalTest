@@ -13,10 +13,14 @@ class LoginPage {
     get rememberBtnLogin() { 
         return $('#login-remember'); }
 
+    get closeCookies() { 
+        return $('#buttonPrimary'); }
+    
     get errorMessage() { 
         return $('#username-error'); }
 
-    async loginWithCredentials(username, password) {
+    async login(username, password) {
+        await this.closeCookies.click();
         await this.btnLogin.click();
         await this.rememberBtnLogin.click();
         await this.inputUsername.setValue(username);

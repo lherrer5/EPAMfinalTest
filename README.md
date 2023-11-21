@@ -16,7 +16,5 @@ Check that Name is correct.
 
 Provide parallel execution, add logging for tests, and use tagging to parametrize tests suite run. Make sure that all tasks supported by this 3 conditions: 1. UC - 1; 2. UC - 2; 3. UC -3.
 
-NOTE: Please use Node version 18.17.0:
-nvm install 18.17.0
-nvm use 18.17.0
+NOTE: Please use Node version 18.14.1 and wdio verion 8.20.3
 To run the tests use the **npm run wdio** command
